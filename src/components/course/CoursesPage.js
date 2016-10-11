@@ -7,26 +7,22 @@ import * as courseActions from '../../actions/CourseActions'
 class CoursesPage extends Component  {
   constructor(props, context) { //initialize state and bind functions
     super(props, context)
-
-    this.state = {
-      course: { title: '' }
-    }
-
-    this._onTitleChange = this._onTitleChange.bind(this)
-    this._onClickSave = this._onClickSave.bind(this)
+    
+    // this._onTitleChange = this._onTitleChange.bind(this)
+    // this._onClickSave = this._onClickSave.bind(this)
   }
 
-  _onTitleChange(e) {
-    const course = this.state.course
-    course.title = e.target.value;
+  // _onTitleChange(e) {
+  //   const course = this.state.course
+  //   course.title = e.target.value;
+  //
+  //   this.setState({ course: course })
+  //
+  // }
 
-    this.setState({ course: course })
-
-  }
-
-  _onClickSave() {
-    this.props.actions.createCourse(this.state.course)
-  }
+  // _onClickSave() {
+  //   this.props.actions.createCourse(this.state.course)
+  // }
 
   _courseRow(course, index) {
     return <div key={index}>{course.title}</div>
@@ -37,14 +33,6 @@ class CoursesPage extends Component  {
       <div>
         <h1>Courses</h1>
         {this.props.courses.map(this._courseRow)}
-        <h2>Add Course </h2>
-        <input type="text"
-        onChange={this._onTitleChange}
-        value={this.state.course.title} />
-
-        <input className="btn btn-info" type="submit"
-        value="Save"
-        onClick={this._onClickSave}/>
       </div>
     )
   }
