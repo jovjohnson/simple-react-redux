@@ -24,9 +24,7 @@ class CoursesPage extends Component  {
   }
 
   _onClickSave() {
-
     this.props.dispatch(courseActions.createCourse(this.state.course))
-
   }
 
   _courseRow(course, index) {
@@ -62,4 +60,9 @@ function mapStateToProps(state, ownProps) {
     courses: state.courses //'courses' from reducer
   }
 }
-export default connect(mapStateToProps)(CoursesPage)
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage)
