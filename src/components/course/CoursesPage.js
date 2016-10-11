@@ -24,7 +24,7 @@ class CoursesPage extends Component  {
   }
 
   _onClickSave() {
-    this.props.dispatch(courseActions.createCourse(this.state.course))
+    this.props.createCourse(this.state.course)
   }
 
   _courseRow(course, index) {
@@ -50,8 +50,8 @@ class CoursesPage extends Component  {
 }
 
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  courses: PropTypes.array.isRequired
+  courses: PropTypes.array.isRequired,
+  createCourse: PropTypes.func.isRequired
 }
 
 
@@ -62,7 +62,9 @@ function mapStateToProps(state, ownProps) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    createCourse: course => dispatch(courseActions.createCourse(course)
+    createCourse: course => dispatch(courseActions.createCourse(course))
+    //wrapping action and call to dispatch
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage)
