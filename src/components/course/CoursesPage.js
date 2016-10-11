@@ -51,8 +51,8 @@ class CoursesPage extends Component  {
 }
 
 CoursesPage.propTypes = {
-  actions: PropTypes.array.isRequired,
-  createCourse: PropTypes.func.isRequired
+  courses: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 
