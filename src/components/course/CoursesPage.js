@@ -5,7 +5,7 @@ import * as courseActions from '../../actions/CourseActions'
 
 
 class CoursesPage extends Component  {
-  constructor(props, context) {
+  constructor(props, context) { //initialize state and bind functions
     super(props, context)
 
     this.state = {
@@ -32,7 +32,7 @@ class CoursesPage extends Component  {
     return <div key={index}>{course.title}</div>
   }
 
-  render() {
+  render() { //ideally renders child components, no markup
     return (
       <div>
         <h1>Courses</h1>
