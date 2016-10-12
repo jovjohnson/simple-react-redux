@@ -8,7 +8,8 @@ export default function courseReducer(state = [], action) {
       return [...state, //returns new instance of array
         Object.assign({}, action.course) //creates copy with new course
       ];
-
+    case types.LOAD_COURSES_SUCCESS:
+      return action.courses;
     default:
       return state;
   }
