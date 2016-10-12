@@ -13,13 +13,13 @@ class ManageCoursePage extends React.Component {
     return (
       <div>
         <h2>Add Course </h2>
-        <input type="text"
+        {/* <input type="text"
         onChange={this._onTitleChange}
         value={this.state.course.title} />
 
         <input className="btn btn-info" type="submit"
         value="Save"
-        onClick={this._onClickSave}/>
+        onClick={this._onClickSave}/> */}
       </div>
     )
   }
