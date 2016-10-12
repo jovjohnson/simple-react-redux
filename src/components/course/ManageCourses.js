@@ -10,11 +10,12 @@ class ManageCourses extends React.Component {
     super(props, context)
 
     this.state = {
-      course: Object.assign({}, this.props.course),
+      course: Object.assign({}, props.course),
       errors: {}
     }
 
     this.updateCourseState = this.updateCourseState.bind(this)
+    this.saveCourse = this.saveCourse.bind(this)
   }
 
   updateCourseState(e) {
@@ -24,12 +25,19 @@ class ManageCourses extends React.Component {
     return this.setState({ course: course })
   }
 
+  saveCourse(e) {
+    e.preventDefault();
+    this.props.actions.saveCourse(this.state.course)
+    console.log('dkashj');
+  }
+
   render() {
     return (
       <div>
         <CourseForm allAuthors={this.props.author}
         onChange={this.updateCourseState}
         course={this.state.course}
+        onSave={this.saveCourse}
         errors={this.state.errors} />
       </div>
     )
@@ -38,7 +46,8 @@ class ManageCourses extends React.Component {
 
 ManageCourses.propTypes = {
   course: PropTypes.object.isRequired,
-  authors: PropTypes.array.isRequired
+  authors: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 
