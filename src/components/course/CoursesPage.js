@@ -2,12 +2,13 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as courseActions from '../../actions/CourseActions'
+import CourseList from './CourseList'
 
 
 class CoursesPage extends Component  {
   constructor(props, context) { //initialize state and bind functions
     super(props, context)
-    
+
     // this._onTitleChange = this._onTitleChange.bind(this)
     // this._onClickSave = this._onClickSave.bind(this)
   }
@@ -29,10 +30,12 @@ class CoursesPage extends Component  {
   }
 
   render() { //ideally renders child components, no markup
+    const { courses } = this.props;
+
     return (
       <div>
         <h1>Courses</h1>
-        {this.props.courses.map(this._courseRow)}
+        <CourseList courses={ courses }/>
       </div>
     )
   }
