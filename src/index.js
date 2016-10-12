@@ -5,11 +5,13 @@ import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
 import routes from './routes';
 import { loadCourses } from './actions/courseActions'
+import { loadAuthors } from './actions/authorActions'
 import HomePage from './components/home/HomePage'
 
 const store = configStore();
 
 store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 
 render(

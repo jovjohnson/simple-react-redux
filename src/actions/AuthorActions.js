@@ -1,4 +1,4 @@
-mport * as types from './ActionTypes'
+import * as types from './ActionTypes'
 import authorApi from '../api/mockAuthorApi'
 
 export function loadAuthorsSuccess(authors) {

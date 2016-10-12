@@ -1,7 +1,5 @@
 import * as types from '../actions/ActionTypes'
 
-
-
 export default function courseReducer(state = [], action) {
   switch(action.type) {
     case types.CREATE_COURSE:
@@ -10,7 +8,7 @@ export default function courseReducer(state = [], action) {
       ];
     case types.LOAD_COURSES_SUCCESS:
       return action.courses;
-      
+
     default:
       return state;
   }

@@ -37,3 +37,5 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors}) =>
     </form>
   )
 }
+
+export default CourseForm

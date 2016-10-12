@@ -13,13 +13,22 @@ class ManageCourses extends React.Component {
       course: Object.assign({}, this.props.course),
       errors: {}
     }
+
+    this.updateCourseState = this.updateCourseState.bind(this)
+  }
+
+  updateCourseState(e) {
+    const field = e.target.name
+    let course = this.state.course
+    course[field] = e.target.value
+    return this.setState({ course: course })
   }
 
   render() {
     return (
       <div>
-        <h2>Manage Course </h2>
-        <CourseForm allAuthors={[]}
+        <CourseForm allAuthors={this.props.author}
+        onChange={this.updateCourseState}
         course={this.state.course}
         errors={this.state.errors} />
       </div>
@@ -27,16 +36,26 @@ class ManageCourses extends React.Component {
   }
 }
 
-ManageCourses.PropTypes = {
-  course: PropTypes.object.isRequired
+ManageCourses.propTypes = {
+  course: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired
 }
 
 
 function mapStateToProps(state) {
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '',
     category: ''}
+
+  const authorsFormattedForDropdown = state.authors.map(author => {
+    return {
+      value: author.id,
+      text: author.firstName + ' ' + author.lastName
+    }
+
+  })
   return {
-    course: course
+    course: course,
+    authors: authorsFormattedForDropdown
   }
 
 }
