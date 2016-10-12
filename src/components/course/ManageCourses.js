@@ -12,7 +12,7 @@ class ManageCoursePage extends React.Component {
   render() {
     return (
       <div>
-        <h2>Add Course </h2>
+        <h2>Manage Course </h2>
         {/* <input type="text"
         onChange={this._onTitleChange}
         value={this.state.course.title} />
