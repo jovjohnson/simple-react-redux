@@ -7,7 +7,7 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors}) =>
     <form>
       <h1>Manage Course</h1>
       <TextInput name="title"
-      lavel="Title"
+      label="Title"
       value={course.title}
       onChange={onChange}
       error={errors.title} />
@@ -39,7 +39,6 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors}) =>
       value={ loading ? 'Saving...' : 'Save'}
       className="btn btn-primary"
       onClick={onSave}/>
-
     </form>
   )
 }

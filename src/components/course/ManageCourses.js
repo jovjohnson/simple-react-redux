@@ -9,6 +9,9 @@ class ManageCourses extends React.Component {
   constructor(props, context) {
     super(props, context)
 
+
+    console.log('props: ', props)
+
     this.state = {
       course: Object.assign({}, props.course),
       errors: {}
@@ -28,7 +31,9 @@ class ManageCourses extends React.Component {
   saveCourse(e) {
     e.preventDefault();
     this.props.actions.saveCourse(this.state.course)
-    console.log('dkashj');
+
+    this.context.router.push('/courses')
+
   }
 
   render() {
@@ -50,8 +55,22 @@ ManageCourses.propTypes = {
   actions: PropTypes.object.isRequired
 }
 
+ManageCourses.contextTypes = {
+  router: PropTypes.object
+}
 
-function mapStateToProps(state) {
+function getCourseById(courses, id) {
+  const course = courses.filter(course => course.id == id);
+  if (course) return course[0];
+  return null;
+}
+
+function mapStateToProps(state, ownProps) {
+  const courseId = ownProps.params.id;
+  if(courseId) {
+    course = getCourseById(state.courses, courseId)
+  }
+
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '',
     category: ''}
 
