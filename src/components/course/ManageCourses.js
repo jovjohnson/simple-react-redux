@@ -33,7 +33,6 @@ class ManageCourses extends React.Component {
     this.props.actions.saveCourse(this.state.course)
 
     this.context.router.push('/courses')
-
   }
 
   render() {
@@ -79,13 +78,11 @@ function mapStateToProps(state, ownProps) {
       value: author.id,
       text: author.firstName + ' ' + author.lastName
     }
-
   })
   return {
     course: course,
     authors: authorsFormattedForDropdown
   }
-
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
