@@ -70,8 +70,13 @@ function mapStateToProps(state, ownProps) {
     course = getCourseById(state.courses, courseId)
   }
 
-  let course = {id: '', watchHref: '', title: '', authorId: '', length: '',
-    category: ''}
+  let course = 
+      {id: '', 
+       watchHref: '', 
+       title: '', 
+       authorId: '', 
+       length: '',
+       category: ''}
 
   const authorsFormattedForDropdown = state.authors.map(author => {
     return {
